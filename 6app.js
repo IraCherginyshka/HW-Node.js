@@ -12,7 +12,7 @@ class Rabbit extends EventEmitter {
   chengePosition() {
     this._positionX = Math.random();
     this._positionY = Math.random();
-    this.emit(nameEvent, `${this._positionX} / ${this._positionY}`);
+    this.emit("rabbitPosition", `${this._positionX} / ${this._positionY}`);
   }
 }
 
@@ -26,8 +26,8 @@ class Hunter {
 
 const r = new Rabbit ();
 const h = new Hunter ();
-let nameEvent = "rabbitPosition";
-r.on(nameEvent, h.showPosition.bind(h));
+
+r.on("rabbitPosition", h.showPosition.bind(h));
 
 r.chengePosition();
 r.chengePosition();
