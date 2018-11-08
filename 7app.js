@@ -28,7 +28,7 @@ class StrTransform extends stream.Transform {
     super({objectMode: true});
   }
   _transform(chunk, encoding, callback) {
-    let res = chunk.toLowerCase().replace(/\s/g, "");
+    let res = chunk.toLowerCase().replace(/\s+/g, "");
     this.push(res);
     callback();
   }
